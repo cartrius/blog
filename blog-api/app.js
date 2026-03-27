@@ -8,7 +8,13 @@ const commentRouter = require("./routes/commentRouter");
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+    origin: [
+        "https://blog-reader.vercel.app",
+        "https://blog-author.vercel.app"
+    ]
+}));
+
 app.use(express.json());
 
 app.use("/api/auth", authRouter);
