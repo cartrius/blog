@@ -7,7 +7,7 @@ function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("http://localhost:3000/api/posts/all", {
+        fetch("${import.meta.env.VITE_API_URL}/api/posts/all", {
             headers: { "Authorization": `Bearer ${token}` }
         })
         .then(res => res.json())
@@ -15,7 +15,7 @@ function Dashboard() {
         }, [token]);
 
     async function handleDelete(id) {
-        await fetch(`http://localhost:3000/api/posts/${id}`, {
+        await fetch(`${import.meta.env.VITE_API_URL}/api/posts/${id}`, {
             method: "DELETE",
             headers: { "Authorization": `Bearer ${token}` }
         });

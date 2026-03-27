@@ -10,7 +10,7 @@ function EditPost() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/posts/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/posts/${id}`)
             .then(res => res.json())
             .then(data => {
                 setTitle(data.title);
@@ -22,7 +22,7 @@ function EditPost() {
     async function handleSubmit(e) {
         e.preventDefault();
 
-        await fetch(`http://localhost:3000/api/posts/${id}`, {
+        await fetch(`${import.meta.env.VITE_API_URL}/api/posts/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",

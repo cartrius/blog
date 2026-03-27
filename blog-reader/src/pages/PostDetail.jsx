@@ -9,7 +9,7 @@ function PostDetail() {
     const token = localStorage.getItem("token")
 
     useEffect(() => {
-        fetch(`http://localhost:3000/api/posts/${id}`)
+        fetch(`${import.meta.env.VITE_API_URL}/api/posts/${id}`)
             .then(res => res.json())
             .then(data => {
                 setPost(data);
@@ -20,7 +20,7 @@ function PostDetail() {
     async function handleComment(e) {
         e.preventDefault();
 
-        const res = await fetch(`http://localhost:3000/api/comments/post/${id}`, {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/comments/post/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
