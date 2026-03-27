@@ -7,7 +7,7 @@ function Dashboard() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch("${import.meta.env.VITE_API_URL}/api/posts/all", {
+        fetch(`${import.meta.env.VITE_API_URL}/api/posts/all`, {
             headers: { "Authorization": `Bearer ${token}` }
         })
         .then(res => res.json())

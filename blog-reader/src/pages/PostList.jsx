@@ -6,7 +6,7 @@ function PostList() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch("${import.meta.env.VITE_API_URL}/api/posts")
+        fetch(`${import.meta.env.VITE_API_URL}/api/posts`)
             .then(res => res.json())
             .then(data => {
                 setPosts(data);
